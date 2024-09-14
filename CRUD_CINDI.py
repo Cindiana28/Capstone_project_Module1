@@ -233,7 +233,6 @@ def delete_contact():
             writer.writerow({'NIK': new_data[0], 'NAMA': new_data[1], 'UMUR': new_data[2], 'GENDER': new_data[3], 'PEKERJAAN': new_data[4], 'JABATAN': new_data[5], 'STATUS': new_data[6], 'DOMISILI': new_data[7]}) 
 
     print("Data sudah terhapus")
-    print('data sudah terhapus kedua ')
     back_to_menu()
 
 if __name__ == "__main__":

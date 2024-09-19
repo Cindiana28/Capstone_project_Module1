@@ -3,7 +3,7 @@ import os
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-# List to store employee data
+# Fungsi untuk menampilkan menu utama
 karyawan = [
     {"nik": "123456", "nama": "Andi", "umur": 30, "posisi": "Staf", "Department": "HR", "domisili": "Tangerang"},
     {"nik": "189101", "nama": "Budi", "umur": 25, "posisi": "Manager", "Department": "IT", "domisili": "Jakarta"},
@@ -15,7 +15,7 @@ karyawan = [
     {"nik": "125461", "nama": "Cindi", "umur": 28, "posisi": "Manager", "Department": "Bisnis", "domisili": "Tangerang"},
 ]
 
-# Main menu function
+# Menjalankan program menu utama
 def menu():
     clear_screen()
     while True:
@@ -49,7 +49,7 @@ def back_to_menu():
     input("Tekan Enter untuk kembali...")
     menu()
 
-# Function to display all employee data
+# Fungsi untuk menampilkan semua data karyawan
 def tampilkan_karyawan():
     clear_screen()
     print("\nData Karyawan:")
@@ -60,7 +60,7 @@ def tampilkan_karyawan():
             print(f"NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, Posisi: {data['posisi']}, Department: {data['Department']}, Domisili: {data['domisili']}")
     back_to_menu()
 
-# Function to add new employee data
+# Fungsi untuk menambah data karyawan baru
 def tambah_karyawan():
     clear_screen()
     nik = input("Masukkan NIK: ")
@@ -75,7 +75,7 @@ def tambah_karyawan():
     print("Data karyawan berhasil ditambahkan!\n")
     back_to_menu()
 
-# Function to edit employee data
+# Fungsi untuk mengedit data karyawan
 def edit_karyawan():
     clear_screen()
     tampilkan_karyawan()
@@ -95,7 +95,7 @@ def edit_karyawan():
     print(f"Karyawan dengan NIK {nik} tidak ditemukan.\n")
     back_to_menu()
 
-# Function to delete employee data
+# Fungsi untuk menghapus data karyawan
 def hapus_karyawan():
     clear_screen()
     tampilkan_karyawan()
@@ -110,7 +110,7 @@ def hapus_karyawan():
     print(f"Karyawan dengan NIK {nik} tidak ditemukan.\n")
     back_to_menu()
 
-# Function to search for employee data
+# Fungsi untuk mencari data karyawan
 def cari_karyawan():
     clear_screen()
     nik = input("Masukkan NIK karyawan yang akan dicari: ")
@@ -122,5 +122,5 @@ def cari_karyawan():
     print(f"Karyawan dengan NIK {nik} tidak ditemukan.\n")
     back_to_menu()
 
-# Run the main menu
+# Menjalankan program menu utama
 menu()

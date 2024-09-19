@@ -3,7 +3,7 @@ import os
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-# Fungsi untuk menampilkan menu utama
+# Membuat list untuk menyimpan data karyawan
 karyawan = [
     {"nik": "123456", "nama": "Andi", "umur": 30, "posisi": "Staf", "Department": "HR", "domisili": "Tangerang"},
     {"nik": "189101", "nama": "Budi", "umur": 25, "posisi": "Manager", "Department": "IT", "domisili": "Jakarta"},

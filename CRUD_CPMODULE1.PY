@@ -15,6 +15,17 @@ karyawan = [
     {"nik": "125461", "nama": "Cindi", "umur": 28, "posisi": "Manager", "Department": "Bisnis", "domisili": "Tangerang"},
 ]
 
+# Fungsi untuk menampilkan semua data karyawan
+def tampilkan_karyawan():
+    clear_screen()
+    print("\nData Karyawan:")
+    if len(karyawan) == 0:
+        print("Tidak ada data karyawan.")
+    else:
+        for data in karyawan:
+            print(f"NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, Posisi: {data['posisi']}, Department: {data['Department']}, Domisili: {data['domisili']}")
+    back_to_menu()
+
 # Menjalankan program menu utama
 def menu():
     clear_screen()
@@ -49,16 +60,6 @@ def back_to_menu():
     input("Tekan Enter untuk kembali...")
     menu()
 
-# Fungsi untuk menampilkan semua data karyawan
-def tampilkan_karyawan():
-    clear_screen()
-    print("\nData Karyawan:")
-    if len(karyawan) == 0:
-        print("Tidak ada data karyawan.")
-    else:
-        for data in karyawan:
-            print(f"NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, Posisi: {data['posisi']}, Department: {data['Department']}, Domisili: {data['domisili']}")
-    back_to_menu()
 
 # Fungsi untuk menambah data karyawan baru
 def tambah_karyawan():
@@ -78,7 +79,13 @@ def tambah_karyawan():
 # Fungsi untuk mengedit data karyawan
 def edit_karyawan():
     clear_screen()
-    tampilkan_karyawan()
+    
+    print("\nData Karyawan:")
+    if len(karyawan) == 0:
+        print("Tidak ada data karyawan.")
+    else:
+        for data in karyawan:
+            print(f"NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, Posisi: {data['posisi']}, Department: {data['Department']}, Domisili: {data['domisili']}")
     
     nik = input("\nMasukkan NIK karyawan yang akan diedit: ")
     for data in karyawan:
@@ -91,6 +98,7 @@ def edit_karyawan():
             data['domisili'] = input("Masukkan Domisili baru: ")
             print("Data berhasil diperbarui!\n")
             back_to_menu()
+
     
     print(f"Karyawan dengan NIK {nik} tidak ditemukan.\n")
     back_to_menu()
@@ -98,7 +106,12 @@ def edit_karyawan():
 # Fungsi untuk menghapus data karyawan
 def hapus_karyawan():
     clear_screen()
-    tampilkan_karyawan()
+    print("\nData Karyawan:")
+    if len(karyawan) == 0:
+        print("Tidak ada data karyawan.")
+    else:
+        for data in karyawan:
+            print(f"NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, Posisi: {data['posisi']}, Department: {data['Department']}, Domisili: {data['domisili']}")
     
     nik = input("\nMasukkan NIK karyawan yang akan dihapus: ")
     for data in karyawan:

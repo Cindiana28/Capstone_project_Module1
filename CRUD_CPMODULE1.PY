@@ -17,6 +17,7 @@ karyawan = [
 
 # Fungsi untuk menampilkan semua data karyawan
 def tampilkan_karyawan():
+    
     clear_screen()
     print("\nData Karyawan:")
     if len(karyawan) == 0:

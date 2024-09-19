@@ -1,10 +1,21 @@
-
-
 import os
+
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-# Fungsi untuk menampilkan menu utama
+# List to store employee data
+karyawan = [
+    {"nik": "123456", "nama": "Andi", "umur": 30, "posisi": "Staf", "Department": "HR", "domisili": "Tangerang"},
+    {"nik": "189101", "nama": "Budi", "umur": 25, "posisi": "Manager", "Department": "IT", "domisili": "Jakarta"},
+    {"nik": "112131", "nama": "Citra", "umur": 28, "posisi": "Staf", "Department": "Finance", "domisili": "Bekasi"},
+    {"nik": "116161", "nama": "Diana", "umur": 35, "posisi": "Supervisor", "Department": "Bisnis", "domisili": "Bekasi"},
+    {"nik": "113161", "nama": "Surya", "umur": 32, "posisi": "Manager", "Department": "Finance", "domisili": "Jakarta"},
+    {"nik": "115189", "nama": "Thia", "umur": 35, "posisi": "Staf", "Department": "Marketing", "domisili": "Bekasi"},
+    {"nik": "111161", "nama": "Iren", "umur": 26, "posisi": "Staf", "Department": "Legal", "domisili": "Depok"},
+    {"nik": "125461", "nama": "Cindi", "umur": 28, "posisi": "Manager", "Department": "Bisnis", "domisili": "Tangerang"},
+]
+
+# Main menu function
 def menu():
     clear_screen()
     while True:
@@ -35,113 +46,81 @@ def menu():
             back_to_menu()
 
 def back_to_menu():
-    print("\n")
     input("Tekan Enter untuk kembali...")
     menu()
 
-# Menjalankan program menu utama
-menu()
-    # Membuat list untuk menyimpan data karyawan
-karyawan = [
-    {"nik": "123456", "nama": "Andi", "umur": 30, "posisi" : "Staf", "Department" : "HR", "domisili" : "Tangerang"},
-    {"nik": "189101", "nama": "Budi", "umur": 25, "posisi" : "Manager", "Department" : "IT", "domisili" : "Jakarta"},
-    {"nik": "112131", "nama": "Citra", "umur": 28, "posisi" : "Staf", "Department" : "Finance", "domisili" : "Bekasi"},
-    {"nik": "116161", "nama": "Diana", "umur": 35,  "posisi" : "Supervisor", "Department" : "Bisnis", "domisili" : "Bekasi"},
-    {"nik": "113161", "nama": "Surya", "umur": 32,  "posisi" : "Manager", "Department" : "Finance", "domisili" : "Jakarta"},
-    {"nik": "115189", "nama": "Thia", "umur": 35,  "posisi" : "Staf", "Department" : "Marketing", "domisili" : "Bekasi"},
-    {"nik": "111161", "nama": "iren", "umur": 26,  "posisi" : "Staf", "Department" : "Legal", "domisili" : "Depok"},
-    {"nik": "125461", "nama": "Cindi", "umur": 28,  "posisi" : "Manager", "Department" : "Bisnis", "domisili" : "Tangerang"},
-]
-
-# Fungsi untuk menampilkan semua data karyawan
+# Function to display all employee data
 def tampilkan_karyawan():
     clear_screen()
     print("\nData Karyawan:")
     if len(karyawan) == 0:
         print("Tidak ada data karyawan.")
-        back_to_menu()
     else:
         for data in karyawan:
-            print(f"NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, posisi : {data['posisi']}, Department: {data['Department']}, domisili : {data['domisili']}")
-        back_to_menu()
-    
-        
+            print(f"NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, Posisi: {data['posisi']}, Department: {data['Department']}, Domisili: {data['domisili']}")
+    back_to_menu()
 
-# Fungsi untuk menambah data karyawan baru
+# Function to add new employee data
 def tambah_karyawan():
     clear_screen()
-    nik = input("Masukkan NIK anda : ")
-    nama = input("Masukkan Nama anda : ")
-    umur = int(input("Masukkan Umur anda : "))
-    posisi = input("Masukan Posisi anda : ")
-    Department = input("Masukan Department anda")
-    domisili = input("Masukan Domisili anda")
-    karyawan_baru = {"nik": nik, "nama": nama, "umur": umur, "posisi": posisi, "Department": Department, "domisili": domisili}
+    nik = input("Masukkan NIK: ")
+    nama = input("Masukkan Nama: ")
+    umur = int(input("Masukkan Umur: "))
+    posisi = input("Masukkan Posisi: ")
+    department = input("Masukkan Department: ")
+    domisili = input("Masukkan Domisili: ")
+    
+    karyawan_baru = {"nik": nik, "nama": nama, "umur": umur, "posisi": posisi, "Department": department, "domisili": domisili}
     karyawan.append(karyawan_baru)
     print("Data karyawan berhasil ditambahkan!\n")
     back_to_menu()
 
-# Fungsi untuk mengedit data karyawan
+# Function to edit employee data
 def edit_karyawan():
     clear_screen()
+    tampilkan_karyawan()
     
-    print("\nData Karyawan:")
-    if len(karyawan) == 0:
-        print("Tidak ada data karyawan.")
-        back_to_menu()
-    else:
-        for data in karyawan:
-            print(f"NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, posisi : {data['posisi']}, Department: {data['Department']}, domisili : {data['domisili']}")
-
-
-    nik = input("\n Masukkan NIK karyawan yang akan diedit: ")
+    nik = input("\nMasukkan NIK karyawan yang akan diedit: ")
     for data in karyawan:
         if data['nik'] == nik:
-            print(f"Data ditemukan: NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, posisi : {data['posisi']}, Department: {data['Department']}, domisili : {data['domisili']}")
-            nama_baru = input("Masukkan Nama baru: ")
-            umur_baru = int(input("Masukkan Umur baru: "))
-            posisi_baru = input("Masukkan Posisi baru: ")
-            Department_baru = input("Masukan Department baru: ")
-            domisili_baru = input("Masukan domisili baru: ")
-            data['nama'] = nama_baru
-            data['umur'] = umur_baru
-            data['posisi'] = posisi_baru
-            data['Department'] = Department_baru
-            data['domisili'] = domisili_baru
+            print(f"Data ditemukan: NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, Posisi: {data['posisi']}, Department: {data['Department']}, Domisili: {data['domisili']}")
+            data['nama'] = input("Masukkan Nama baru: ")
+            data['umur'] = int(input("Masukkan Umur baru: "))
+            data['posisi'] = input("Masukkan Posisi baru: ")
+            data['Department'] = input("Masukkan Department baru: ")
+            data['domisili'] = input("Masukkan Domisili baru: ")
             print("Data berhasil diperbarui!\n")
             back_to_menu()
+    
     print(f"Karyawan dengan NIK {nik} tidak ditemukan.\n")
     back_to_menu()
 
-# Fungsi untuk menghapus data karyawan
+# Function to delete employee data
 def hapus_karyawan():
     clear_screen()
+    tampilkan_karyawan()
     
-    print("\nData Karyawan:")
-    if len(karyawan) == 0:
-        print("Tidak ada data karyawan.")
-        back_to_menu()
-    else:
-        for data in karyawan:
-            print(f"Data ditemukan: NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, posisi : {data['posisi']}, Department: {data['Department']}, domisili : {data['domisili']}")
-    
-    nik = input("\n Masukkan NIK karyawan yang akan dihapus: ")
+    nik = input("\nMasukkan NIK karyawan yang akan dihapus: ")
     for data in karyawan:
         if data['nik'] == nik:
             karyawan.remove(data)
             print(f"Karyawan dengan NIK {nik} berhasil dihapus.\n")
-            
+            back_to_menu()
+    
     print(f"Karyawan dengan NIK {nik} tidak ditemukan.\n")
     back_to_menu()
 
-
-# Fungsi untuk mencari data karyawan
+# Function to search for employee data
 def cari_karyawan():
     clear_screen()
     nik = input("Masukkan NIK karyawan yang akan dicari: ")
     for data in karyawan:
         if data['nik'] == nik:
-            print(f"Data ditemukan: NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, posisi : {data['posisi']}, Department: {data['Department']}, domisili : {data['domisili']}")
-            return
+            print(f"Data ditemukan: NIK: {data['nik']}, Nama: {data['nama']}, Umur: {data['umur']}, Posisi: {data['posisi']}, Department: {data['Department']}, Domisili: {data['domisili']}")
+            back_to_menu()
+    
     print(f"Karyawan dengan NIK {nik} tidak ditemukan.\n")
+    back_to_menu()
 
+# Run the main menu
+menu()
